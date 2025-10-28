@@ -2,6 +2,7 @@
 import streamlit as st
 from app import t, data
 
+# Título e introdução
 st.markdown("""
 <div style='text-align: center; margin-bottom: 3rem;'>
     <h1 class='section-title'>Vamos Conversar</h1>
@@ -12,8 +13,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# Layout de duas colunas
 col1, col2 = st.columns([2, 1])
 
+# Coluna 1 - Formulário de contato
 with col1:
     with st.form("contact_form"):
         st.markdown("### 📝 Envie uma Mensagem")
@@ -30,74 +33,42 @@ with col1:
             else:
                 st.error("❌ Por favor, preencha todos os campos.")
 
+# Coluna 2 - Informações de contato
 with col2:
     st.markdown("### 📞 Informações de Contato")
-    
-    st.markdown("""
-    <div class='modern-card'>
-        <div style='display: flex; align-items: center; margin-bottom: 1.5rem;'>
-            <div style='font-size: 1.5rem; margin-right: 1rem;'>📧</div>
-            <div>
-                <div style='font-weight: 600;'>Email</div>
-                <div style='color: var(--text-secondary);'>marcio.maker@email.com</div>
-            </div>
-        </div>
-        
-        <div style='display: flex; align-items: center; margin-bottom: 1.5rem;'>
-            <div style='font-size: 1.5rem; margin-right: 1rem;'>💼</div>
-            <div>
-                <div style='font-weight: 600;'>LinkedIn</div>
-                <div style='color: var(--text-secondary);'>linkedin.com/in/marciomaker</div>
-            </div>
-        </div>
-        
-        <div style='display: flex; align-items: center; margin-bottom: 1.5rem;'>
-            <div style='font-size: 1.5rem; margin-right: 1rem;'>🐙</div>
-            <div>
-                <div style='font-weight: 600;'>GitHub</div>
-                <div style='color: var(--text-secondary);'>github.com/marciomaker</div>
-            </div>
-        </div>
-        
-        <div style='display: flex; align-items: center;'>
-            <div style='font-size: 1.5rem; margin-right: 1rem;'>🎨</div>
-            <div>
-                <div style='font-weight: 600;'>Behance</div>
-                <div style='color: var(--text-secondary);'>behance.net/marciomaker</div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
 
-# Disponibilidade
+    with st.container():
+        st.write("**📧 Email**")
+        st.caption("marcio.maker@email.com")
+
+        st.write("**💼 LinkedIn**")
+        st.link_button("linkedin.com/in/marciomaker", "https://linkedin.com/in/marciomaker")
+
+        st.write("**🐙 GitHub**")
+        st.link_button("github.com/marciomaker", "https://github.com/marciomaker")
+
+        st.write("**🎨 Behance**")
+        st.link_button("behance.net/marciomaker", "https://behance.net/marciomaker")
+
+# Separador
 st.markdown("---")
+
+# Seção de Disponibilidade
 st.markdown("<div style='text-align: center; margin: 3rem 0;'><h2 class='section-title'>Disponibilidade</h2></div>", unsafe_allow_html=True)
 
 avail_cols = st.columns(3)
 
 with avail_cols[0]:
-    st.markdown("""
-    <div class='modern-card' style='text-align: center;'>
-        <div style='font-size: 2.5rem; margin-bottom: 1rem;'>⚡</div>
-        <h4>Resposta Rápida</h4>
-        <p style='color: var(--text-secondary);'>Retorno em até 24h</p>
-    </div>
-    """, unsafe_allow_html=True)
+    with st.container():
+        st.markdown("### ⚡ Resposta Rápida")
+        st.caption("Retorno em até 24h")
 
 with avail_cols[1]:
-    st.markdown("""
-    <div class='modern-card' style='text-align: center;'>
-        <div style='font-size: 2.5rem; margin-bottom: 1rem;'>🌎</div>
-        <h4>Atendimento Global</h4>
-        <p style='color: var(--text-secondary);'>Clientes em todo mundo</p>
-    </div>
-    """, unsafe_allow_html=True)
+    with st.container():
+        st.markdown("### 🌎 Atendimento Global")
+        st.caption("Clientes em todo o mundo")
 
 with avail_cols[2]:
-    st.markdown("""
-    <div class='modern-card' style='text-align: center;'>
-        <div style='font-size: 2.5rem; margin-bottom: 1rem;'>💬</div>
-        <h4>Suporte Contínuo</h4>
-        <p style='color: var(--text-secondary);'>Acompanhamento pós-projeto</p>
-    </div>
-    """, unsafe_allow_html=True)
+    with st.container():
+        st.markdown("### 💬 Suporte Contínuo")
+        st.caption("Acompanhamento pós-projeto")

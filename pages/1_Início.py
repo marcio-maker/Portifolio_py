@@ -9,34 +9,40 @@ st.markdown("""
     <p class='section-subtitle' style='max-width: 600px; margin: 2rem auto;'>
         UX/UI Designer & Full Stack Developer com mais de 10 anos criando soluções que unem design elegante e tecnologia robusta.
     </p>
-    
-    <div style='display: flex; gap: 1rem; justify-content: center; margin: 3rem 0;'>
-        <button style='
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-        '>
-            Ver Meus Projetos
-        </button>
-        
-        <button style='
-            background: transparent;
-            color: #6366f1;
-            border: 2px solid #6366f1;
-            padding: 12px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-        '>
-            Saber Mais
-        </button>
-    </div>
 </div>
 """, unsafe_allow_html=True)
+
+# Botões funcionais
+st.markdown("<div style='text-align: center; margin: 3rem 0;'>", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button(
+        "**🚀 Ver Meus Projetos**", 
+        use_container_width=True,
+        type="primary"
+    ):
+        try:
+            st.switch_page("pages/4_Projetos.py")
+        except:
+            st.success("🎯 Navegando para Projetos...")
+            # Se a navegação não funcionar, mostra uma mensagem
+            st.info("Use o menu lateral para acessar a página de Projetos")
+
+with col2:
+    if st.button(
+        "**📖 Saber Mais**", 
+        use_container_width=True,
+        type="secondary"
+    ):
+        try:
+            st.switch_page("pages/2_Sobre.py")
+        except:
+            st.success("👤 Navegando para Sobre...")
+            st.info("Use o menu lateral para acessar a página Sobre")
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 # Stats
 st.markdown("---")

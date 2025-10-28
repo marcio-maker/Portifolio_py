@@ -57,6 +57,7 @@ with col1:
 with col2:
     st.markdown("""
     <div class='modern-card' style='text-align: center;'>
+        <!-- Imagem de perfil fictícia -->
         <div style='
             width: 200px; 
             height: 200px; 
@@ -66,56 +67,57 @@ with col2:
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            font-size: 3rem; 
-            color: white;
+            overflow: hidden;
+            border: 4px solid rgba(99, 102, 241, 0.3);
         '>
-            👨‍💻
+            <img src='https://tse1.mm.bing.net/th/id/OIP.PnAVGx6FWGI8YwsDt8pGwwHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3' 
+                 style='
+                    width: 100%; 
+                    height: 100%; 
+                    object-fit: cover;
+                 '
+                 alt='Foto de perfil - Marcio Maker'>
         </div>
         <h3 style='margin-bottom: 0.5rem;'>Marcio Maker</h3>
         <p style='color: var(--text-secondary); margin-bottom: 1.5rem;'>
             Senior UX/UI Designer & Full Stack Developer
         </p>
-        
-        <div style='display: flex; justify-content: center; gap: 1rem;'>
-            <button style='
-                background: var(--primary); 
-                color: white; 
-                border: none; 
-                border-radius: 50%; 
-                width: 40px; 
-                height: 40px; 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                cursor: pointer;
-            '>📧</button>
-            <button style='
-                background: var(--primary); 
-                color: white; 
-                border: none; 
-                border-radius: 50%; 
-                width: 40px; 
-                height: 40px; 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                cursor: pointer;
-            '>💼</button>
-            <button style='
-                background: var(--primary); 
-                color: white; 
-                border: none; 
-                border-radius: 50%; 
-                width: 40px; 
-                height: 40px; 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                cursor: pointer;
-            '>🐙</button>
-        </div>
-    </div>
     """, unsafe_allow_html=True)
+    
+    # Container para os botões sociais
+    st.markdown("""
+    <div style='display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;'>
+    """, unsafe_allow_html=True)
+    
+    # Botões sociais com st.button
+    social_cols = st.columns(3)
+    
+    with social_cols[0]:
+        if st.button("📧", key="email_btn", help="Enviar email"):
+            st.success("📧 Email: marcio.maker@example.com")
+    
+    with social_cols[1]:
+        if st.button("💼", key="linkedin_btn", help="Ver LinkedIn"):
+            st.success("💼 LinkedIn: linkedin.com/in/marciomaker")
+    
+    with social_cols[2]:
+        if st.button("🐙", key="github_btn", help="Ver GitHub"):
+            st.success("🐙 GitHub: github.com/marcio-maker")
+    
+    # Fechar a div dos botões
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Texto informativo
+    st.markdown("""
+        <div style='margin-top: 1rem;'>
+            <p style='color: var(--text-secondary); font-size: 0.9rem;'>
+                Clique nos ícones para entrar em contato
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Fechar o card principal
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # Estatísticas
 st.markdown("---")
